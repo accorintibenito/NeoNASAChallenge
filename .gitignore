@@ -1,0 +1,15 @@
+# Python
+apps/api/.venv/
+apps/api/__pycache__/
+*.pyc
+
+# Env
+apps/api/.env
+
+# Next.js
+apps/web/nasa-asteroids-explorer/node_modules/
+apps/web/nasa-asteroids-explorer/.next/
+
+# OS/editor
+.DS_Store
+Thumbs.db
