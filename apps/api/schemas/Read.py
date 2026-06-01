@@ -58,12 +58,7 @@ class CloseApproachItem(BaseModel):
 class SelfAsteroidLink(BaseModel):
     model_config = ConfigDict(populate_by_name=True)
     
-    link: str = Field(alias="self") 
-
-# class AsteroidLink(BaseModel):
-#     model_config = ConfigDict(populate_by_name=True)
-
-#     link: SelfAsteroidLink = Field(alias="links")
+    link: str = Field(alias="self")
 
 class Asteroid(BaseModel):
     model_config = ConfigDict(populate_by_name=True)
@@ -77,13 +72,6 @@ class Asteroid(BaseModel):
     fl_hazardous: bool = Field(alias="is_potentially_hazardous_asteroid")
     close_approach_data: list[CloseApproachItem]
 
-# class SelectedDatesRange(BaseModel):
-#     # asteroid: list[Asteroid]
-#     date: str = Field(pattern="^\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01])$")
-
-# class NearEarthObjects(BaseModel):
-#     date: SelectedDatesRange = Field(pattern="^\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01]")
-
 class NeoWsAPIresponse(BaseModel):
     NEOs: dict[str, list[Asteroid]] = Field(alias="near_earth_objects")
 
@@ -96,14 +84,7 @@ class NeoWsAPIresponse(BaseModel):
             except ValueError:
                 raise ValueError(f"Invalid date key: {key} coming from the API. Expected real date in YYYY-MM-DD format")
         return v
-    # NEOs: NearEarthObjects = Field(alias="near_earth_objects")
-    # model_config = ConfigDict(populate_by_name=True)
 
-    # id: str
-    # name: str
-    # nasa_jpl_url: str
-    # abs_magn_h: float = Field(alias="absolute_magnitude_h")
-    # estimated_diameter: EstimatedDiameter
 
 
 
